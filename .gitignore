@@ -1,0 +1,13 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+assets/models
+*.uid
+systems/LeagueModel/LeagueModel.tscn
+*.import
+*.tmp
+icon.svg
+main.tscn
+main_3D.tscn
+project.godot
+.editorconfig
