@@ -16,7 +16,7 @@ func instantiate_template(v_type : String) -> VariableVisual:
 		if template.name == v_type :
 			selected_template = template
 			break
-	var instance : VariableVisual = selected_template.duplicate()
+	var instance : VariableVisual = selected_template.self_duplicate()
 	container.add_child(instance)
 	instance.owner = self
 	instance.visible = true
@@ -28,7 +28,7 @@ class LogVariable :
 	var visual : VariableVisual
 	
 	func update_visual() -> void:
-		visual._set_value(tag, variable)
+		self.visual._set_value(self.tag, self.variable)
 	
 	static func create(n_tag : String, n_variable : Variant, n_visual : VariableVisual) -> LogVariable:
 		var newVariable : LogVariable = LogVariable.new()
@@ -74,4 +74,4 @@ func _input(_event: InputEvent) -> void:
 func _process(_delta: float) -> void:
 	if !log_active : return
 	for variable : LogVariable in log_variables:
-		variable.update_visual()
+			variable.update_visual()
