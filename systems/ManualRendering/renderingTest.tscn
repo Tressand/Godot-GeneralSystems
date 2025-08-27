@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://g3h8pm531rhl"]
+
+[ext_resource type="Script" uid="uid://d0wevqiax4x2r" path="res://systems/ManualRendering/manual_texture_rendering.gd" id="1_rra8r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rra8r"]
+size = Vector2(256, 256)
+
+[node name="RenderingTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("PlaceholderTexture2D_rra8r")
+centered = false
+script = ExtResource("1_rra8r")
+size = Vector2i(256, 256)

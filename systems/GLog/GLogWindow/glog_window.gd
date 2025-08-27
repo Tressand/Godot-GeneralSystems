@@ -40,12 +40,11 @@ class LogVariable :
 var log_variables : Array[LogVariable]
 
 func add_variable(tag: String, value: Variant) -> void:
-	var type : int = typeof(value)
 	@warning_ignore("unsafe_cast")
 	log_variables.append(LogVariable.create(
 		tag,
 		value,
-		instantiate_template((value as Object).get_class() if type == TYPE_OBJECT else type_string(type))
+		instantiate_template(GLog.typeof_str(value))
 	))
 
 func update_variable(tag : String, value: Variant, add_if_missing : bool = false) -> void:
@@ -54,6 +53,7 @@ func update_variable(tag : String, value: Variant, add_if_missing : bool = false
 			variable.variable = value
 			return
 	if add_if_missing : add_variable(tag, value)
+
 
 func _ready() -> void:
 	window.visible = default_visible

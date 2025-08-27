@@ -1,6 +1,6 @@
 extends Node
 
-@export var movement_component : Node
+@export var movement_component_3d : Node
 @export var tree : AnimationTree
 @export var root : Node3D
 
@@ -8,14 +8,15 @@ extends Node
 
 
 func _ready() -> void:
-	movement_component.movement_start.connect(run)
-	movement_component.movement_end.connect(idle)
+	movement_component_3d.movement_start.connect(run)
+	movement_component_3d.movement_end.connect(idle)
 
 func _process(delta: float) -> void:
-	if movement_component.direction:
+	if movement_component_3d.direction:
+		@warning_ignore("unsafe_call_argument")
 		root.look_at(
 			root.global_position -
-			(root.transform.basis.z).slerp(movement_component.direction, delta * turn_speed)
+			(root.transform.basis.z).slerp(movement_component_3d.direction, delta * turn_speed)
 		)
 
 func idle() -> void:

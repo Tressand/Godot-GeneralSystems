@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcad0bw7vb4tu"]
+
+[ext_resource type="Texture2D" uid="uid://w7v0r2m4kgg3" path="res://assets/models/dev_multistruct/dev_multistruct_d_darkgreendev.png" id="1_ft6h4"]
+[ext_resource type="Texture2D" uid="uid://lnfmlqltktj8" path="res://assets/models/dev_multistruct/dev_multistruct_d_dev_measuregeneric01.png" id="2_lp8e6"]
+[ext_resource type="Texture2D" uid="uid://bb8ya6616e1ik" path="res://assets/models/dev_multistruct/dev_multistruct_d_graygrid.png" id="3_sxbki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fnapy"]
+albedo_texture = ExtResource("1_ft6h4")
+uv1_offset = Vector3(0.5, 0.5, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vo3m3"]
+material = SubResource("StandardMaterial3D_fnapy")
+size = Vector2(1, 1)
+center_offset = Vector3(0, -0.5, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8skmt"]
+albedo_texture = ExtResource("2_lp8e6")
+uv1_scale = Vector3(3, 2, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_renm4"]
+material = SubResource("StandardMaterial3D_8skmt")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1oegx"]
+cull_mode = 2
+albedo_texture = ExtResource("3_sxbki")
+uv1_scale = Vector3(1, 2, 1)
+uv1_offset = Vector3(0.5, 0.5, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nidqg"]
+material = SubResource("StandardMaterial3D_1oegx")
+size = Vector2(1, 2)
+center_offset = Vector3(0.5, 1, 0)
+orientation = 0
+
+[node name="TestMeshLib" type="Node3D"]
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.5, 0.5)
+mesh = SubResource("PlaneMesh_vo3m3")
+
+[node name="Box" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, 0.5)
+mesh = SubResource("BoxMesh_renm4")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0.5)
+mesh = SubResource("PlaneMesh_nidqg")
