@@ -13,9 +13,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Viewport" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = SubResource("PlaceholderTexture2D_rra8r")
 centered = false
 script = ExtResource("1_rra8r")
-size = Vector2i(256, 256)
